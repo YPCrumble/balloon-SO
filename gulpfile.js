@@ -28,4 +28,17 @@ gulp.task('original', function() {
   .pipe(source('./indexModified.js'))
   .pipe(gulp.dest('./dist'))
 })
-.task('default', ['original', 'modified']);
+.task('noJqueryWithSourcemaps', function() {
+  var b = browserify({ entries: './indexModified.js', debug: generateSourcemaps})
+    .transform('babelify', {
+        sourceMaps: generateSourcemaps,
+        presets: ['babel-preset-es2015'],
+        compact: false
+    })
+    .transform('browserify-shim')
+  return b
+  .bundle()
+  .pipe(source('./indexNoJqueryWithSourcemaps.js'))
+  .pipe(gulp.dest('./dist'))
+})
+.task('default', ['original', 'modified', 'noJqueryWithSourcemaps']);
