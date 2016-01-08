@@ -1,0 +1,31 @@
+{
+  "name": "datatables",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^1.11.2"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "browserify-shim": {
+    "jquery": "$"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.3.13",
+    "babelify": "^7.2.0",
+    "browserify": "^12.0.1",
+    "browserify-shim": "^3.8.11",
+    "gulp": "^3.9.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
